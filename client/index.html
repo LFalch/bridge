@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="http://127.0.0.1:8081/socket.io/socket.io.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/addons/p5.dom.min.js"></script>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+	<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+	<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+	<style>
+		/* The slider itself */
+		input[type=range] {
+			-webkit-appearance: none;
+			/* Override default CSS styles */
+			appearance: none;
+			width: 100%;
+			/* Full-width */
+			height: 25px;
+			/* Specified height */
+			background: #d3d3d3;
+			/* Grey background */
+			outline: none;
+			/* Remove outline */
+			opacity: 0.7;
+			/* Set transparency (for mouse-over effects on hover) */
+			-webkit-transition: .2s;
+			/* 0.2 seconds transition on hover */
+			transition: opacity .2s;
+		}
+
+		input[type=range]:hover {
+			opacity: 1;
+			/* Fully shown on mouse-over */
+		}
+
+		/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+		input[type=range]::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			/* Override default look */
+			appearance: none;
+			width: 25px;
+			/* Set a specific slider handle width */
+			height: 25px;
+			/* Slider handle height */
+			background: rgb(144, 86, 195);
+			/* Green background */
+			cursor: pointer;
+			/* Cursor on hover */
+		}
+
+		input[type=range]::-moz-range-thumb {
+			width: 25px;
+			/* Set a specific slider handle width */
+			height: 25px;
+			/* Slider handle height */
+			background: rgb(144, 86, 195);
+			/* Green background */
+			cursor: pointer;
+			/* Cursor on hover */
+		}
+
+	</style>
+
+	<script src="osc-unity.js"></script>
+
+</head>
+
+<body>
+</body>
+
+</html>
