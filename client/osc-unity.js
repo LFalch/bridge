@@ -3,7 +3,7 @@ Skriv denne kommando i terminalen:
 node bridge.js
 */
 
-// input
+// input til atsende beskeder til Unity
 let textInput;
 
 let unityHostInputField;
@@ -17,11 +17,16 @@ let containerSection;
 
 let socket;
 
+//Alle slidere gemmes i et array, så de senere kan manipuleres samlet
 let listeningSliders = [];
 let lightIntensitySlider;
+
+//Slidere til lysets retning oprettes som objekter
 let lightDirectionSliders = {};
 let lockSlider;
 
+//Vi sætter alle konfigurationsoplysninger i et array 
+//Node serveren lytter (fx på beskeder fra wekinator) på port 11000
 let bridgeConfig = {
 	local: {
 		port: 11000,
@@ -30,7 +35,7 @@ let bridgeConfig = {
 	remotes: [{
 			name: "unity",
 			port: 12000,
-			host: '192.168.8.101'
+			host: '100.106.113.6'
 		},
 		{
 			name: "arduino",
@@ -117,7 +122,7 @@ function setup() {
 	createElement("h5", "Intensitet")
 		.parent(containerSection);
 
-	lightIntensitySlider = createSlider(0, 80 * 100, 0)
+	lightIntensitySlider = createSlider(0, 80 * 100, 400)
 		.parent(containerSection);
 
 	lightIntensitySlider.elt.addEventListener('input', () => {
@@ -182,24 +187,26 @@ Nedenstående er OSC funktioner.
 */
 
 function receiveOsc(address, value) {
-
 	if (address.split('/')[1] === "wek") {
 		// besked fra Wekinator
-		//resultPre.html(address + "   " + value + '\n' +resultPre.html());
 	}
 
 	resultPre.html(address + "   " + value + '\n' + resultPre.html());
 
+	//Her løber vi alle slidere igennem
 	listeningSliders.map(s => {
+		//Hvis adressen svarer til sliderens adresse (fx wek/outputs)
 		if (address === s.address) {
+			//Hvis der er en værdi i value arrayet
 			if (value[s.index]) {
 
 				if(s.parseValue){
 					value[s.index] = s.parseValue(value[s.index]);
 				}
 
-				let sliderValue = map(value[s.index], 0.0, 1.0, s.slider.elt.min, s.slider.elt.max);
-				console.log("slider got value", sliderValue);
+				//let sliderValue = map(value[s.index], 0.0, 1.0, s.slider.elt.min, s.slider.elt.max);
+				let sliderValue = map(value[s.index], 0.0, 1.0, -18000, 18000);
+				console.log("slider " + s.index + " got value", value[s.index] + " map returns " + sliderValue);
 				s.slider.elt.value = sliderValue;
 				var event = new Event('input', {
 					'bubbles': true,
@@ -216,7 +223,6 @@ function receiveOsc(address, value) {
 
 function logOscInput(string) {
 	resultPre.html(address + "   " + value + '\n' + resultPre.html());
-
 }
 
 function sendOsc(address, value) {
