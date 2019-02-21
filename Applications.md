@@ -5,13 +5,13 @@ Adapted from [osc-web](https://github.com/automata/osc-web).
 #### Setup
 
 1. Install [node](https://nodejs.org/)
-2. Download `p5js-osc`
+1. Download `p5js-osc`
 	```
 	$ git https://github.com/genekogan/p5js-osc
 	$ cd p5js-osc/
 	$ npm install
 	```
-3. Run `bridge.js`.
+1. Run `bridge.js`.
 	```
 	$ node bridge.js
 	```
