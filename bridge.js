@@ -23,7 +23,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on("config", function (obj) {
 		isConnected = true;
 		oscServer = new osc.Server(obj.local.port, obj.local.host);
-		obj.remotes.map(c => {
+		Object.values(obj.remotes).map(c => {
 			let newClient = new osc.Client(c.host, c.port);
 			newClient.send('/status', socket.sessionId + ' connected');
 			oscClients.push(newClient);
