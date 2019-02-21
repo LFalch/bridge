@@ -62,7 +62,7 @@ Adapted from [osc-web](https://github.com/automata/osc-web).
 
 #### Example sending OSC data from OpenFrameworks Face tracker and receiving in p5js:
 
-*FaceOSC*  
+*FaceOSC:*
 
 - (SORRY at the moment facetracker is only released for mac)
 - Javascript is slow for facetracking so we can use OF facetracker to do the face work and send the data to javascript over OSC.
@@ -70,13 +70,15 @@ Adapted from [osc-web](https://github.com/automata/osc-web).
 - See the documentation of this in the repo.
 - Fun things to try with this. Draw a face on a piece of paper, can facetracker recognize it?
 
-*Facetracker options*
+*Facetracker options:*
 
 - Pose and gesture refers to pose and gesture of the face. Direction of the face, size of eyes, width of mouth etc.
 - If you have raw on, you are sending raw data (the coordinates of the facial mesh) and it sends 1032 numbers 30 times a second. A lot of data! Note, if you are not using this it is a waste to send all this data unless you need it.
 - Syphon sends the image (but keep this off for now).
 - Now start index.html of p5-faceOsc. You should see the wireframe of your face in your browser.   
-*FaceOSC-flocking*  
+
+*FaceOSC-flocking:*  
+
 - try this, this is an example from Dan Shiffman to see more of what's possible.  
 - See inside this example for more info on the data that faceOSC provides.  
 
