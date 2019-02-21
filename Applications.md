@@ -4,14 +4,14 @@ Adapted from [osc-web](https://github.com/automata/osc-web).
 
 #### Setup
 
-1. Install [node](https://nodejs.org/)
-1. Download `p5js-osc`
+1.	Install [node](https://nodejs.org/)
+1.	Download `p5js-osc`
 	```
 	$ git https://github.com/genekogan/p5js-osc
 	$ cd p5js-osc/
 	$ npm install
 	```
-1. Run `bridge.js`.
+1.	Run `bridge.js`.
 	```
 	$ node bridge.js
 	```
@@ -32,7 +32,7 @@ Adapted from [osc-web](https://github.com/automata/osc-web).
 	$ node bridge.js 
 	```
 
-1. send OSC to p5 via port 3333. send OSC from p5 via port 3334  
+1. Send OSC to p5 via port 3333. send OSC from p5 via port 3334  
 
 
 ### Examples
