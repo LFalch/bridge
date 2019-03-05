@@ -1,6 +1,14 @@
 var osc = require('node-osc');
 var io = require('socket.io')(8081);
 
+const Serialport = require("serialport");
+const Firmata = require("firmata");
+const board = new Firmata(new Serialport(...));
+ 
+board.on("ready", () => {
+  // Arduino is ready to communicate
+});
+
 var oscServer;
 let oscClients = [];
 

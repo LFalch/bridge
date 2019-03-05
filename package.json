@@ -34,6 +34,7 @@
   ],
   "dependencies": {
     "express": "^4.16.4",
+    "firmata": "^2.0.0",
     "http": "0.0.0",
     "node-osc": "^2.0.0",
     "socket.io": "1.4.5"
